@@ -1,0 +1,7 @@
+excercise sheet 1 
+create a simple program to calculate the WhitMonday of given year
+use make to compile the programm
+run program ./WhitMondayMain <Year>
+prints the date on the terminal
+
+The test uses the google gtest Testframework
