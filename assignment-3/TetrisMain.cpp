@@ -1,5 +1,5 @@
-// Copyright 2016, University of Freiburg,
-// Computer Sience
+// Copyright 2018
+// Computer Science
 // Author: Christian Leininger
 
 #include <stdio.h>
