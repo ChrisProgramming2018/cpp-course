@@ -1,5 +1,5 @@
 // Copyright 2018
-// Computer Science 
+// Computer Science
 // Author: Christian Leininger Christianleininger@gmx.de
 
 #include <stdlib.h>
