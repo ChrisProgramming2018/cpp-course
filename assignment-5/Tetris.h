@@ -1,11 +1,11 @@
 // Copyright 2018
-// Computer Science 
+// Computer Science
 // Author: Christian Leininger ChristianLeininger@gmx.de
 
 #include "./Structure.h"
 
-#ifndef BLATT_05_TETRIS_H_
-#define BLATT_05_TETRIS_H_
+#ifndef  ASSIGNMENT_5_TETRIS_H_
+#define  ASSIGNMENT_5_TETRIS_H_
 
 // Class for the Tetris game.
 class Tetris {
@@ -30,4 +30,4 @@ class Tetris {
   Structure _structure;
   Tetromino _tetromino;
 };
-#endif  // BLATT_05_TETRIS_H_
+#endif  //  ASSIGNMENT_5_TETRIS_H_
