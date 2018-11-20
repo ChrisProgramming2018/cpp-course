@@ -1,10 +1,10 @@
 // Copyright 2018
-// Computer Science 
+// Computer Science
 // Author: Christian Leininger
 
 
-#ifndef BLATT_05_STRUCTURE_H_
-#define BLATT_05_STRUCTURE_H_
+#ifndef ASSIGNMENT_5_STRUCTURE_H_
+#define ASSIGNMENT_5_STRUCTURE_H_
 
 #include <gtest/gtest.h>
 #include "./Tetromino.h"
@@ -39,4 +39,4 @@ class Structure {
   FRIEND_TEST(StructureTest, addTetromino);
 };
 
-#endif  // BLATT_05_STRUCTURE_H_
+#endif  //  ASSIGNMENT_5_STRUCTURE_H_
