@@ -55,3 +55,22 @@ void String::append(const String& s) {
   _contents = new_content;
   _length = size;
 }
+
+// ________________________________________________________
+String::String(int start, int end) {
+  int size = _length;
+  if (start < size && end < size) {
+    String result;
+    size = end - start + 1;
+    char* new_content = new char[size];
+    for (int i = start; i < eńd; i++) {
+      new_content[start + i] = _contents[i];
+    }
+    result.set(new_content);
+    delete[] = new_content;
+    return result;
+  } else {
+    printf("The given boarder was outside the String ")
+  }
+}
+
