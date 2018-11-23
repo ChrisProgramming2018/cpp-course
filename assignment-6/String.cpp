@@ -2,7 +2,7 @@
 // Computer Science
 // Author: Christian Leininger Christianleininger@gmx.de
 
-#include <stdio>
+#include <stdio.h>
 #include "./String.h"
 
 // ________________________________________________________
@@ -16,7 +16,7 @@ String::String(const String& s) {
   _length = s._length;
   _contents = new char[_length];
   for (int i = 0; i < _length; i++) {
-    _contents[i] = s.contents[i];
+    _contents[i] = s._contents[i];
   }
 }
 
@@ -33,10 +33,10 @@ int String::length() const {
 // ________________________________________________________
 void String::set(const char* s) {
   _length = strlen(s);
-  delete[] = _contents;
+  delete[]  _contents;
   _contents = new char[_length];
   for (int i = 0; i < _length; i++) {
-    _contentsi[i] = s[i];
+    _contents[i] = s[i];
   }
 }
 
@@ -51,26 +51,26 @@ void String::append(const String& s) {
   for (int j = 0; j < s._length; j++) {
      new_content[_length + j] = s._contents[j];
   }
-  delete[] = _contents;
+  delete[] _contents;
   _contents = new_content;
   _length = size;
 }
 
 // ________________________________________________________
-String::String(int start, int end) {
+String String::substr(int start, int end) {
   int size = _length;
   if (start < size && end < size) {
     String result;
     size = end - start + 1;
     char* new_content = new char[size];
-    for (int i = start; i < eńd; i++) {
+    for (int i = start; i < end; i++) {
       new_content[start + i] = _contents[i];
     }
     result.set(new_content);
-    delete[] = new_content;
+    delete[]  new_content;
     return result;
   } else {
-    printf("The given boarder was outside the String ")
+    printf("The given boarder was outside the String ");
   }
 }
 
