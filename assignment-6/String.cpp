@@ -61,10 +61,10 @@ String String::substr(int start, int end) {
   int size = _length;
   if (start < size && end < size) {
     String result;
-    size = end - start + 1;
+    int size = end - start + 1;
     char* new_content = new char[size];
-    for (int i = start; i < end; i++) {
-      new_content[start + i] = _contents[i];
+    for (int i = start; i <= end; i++) {
+      new_content[i - start] = _contents[i];
     }
     result.set(new_content);
     delete[]  new_content;
