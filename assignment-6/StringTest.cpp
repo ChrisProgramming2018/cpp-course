@@ -22,3 +22,16 @@ TEST(StringTest, set) {
   ASSERT_EQ('o', s._contents[2]);
   ASSERT_EQ('f', s._contents[3]);
 }
+
+// _________________________________________________________
+TEST(StringTest, DeepCopy) {
+  String s2;
+  s2.set("doof");
+  String s3(s2);
+  s2.set("nicht doof");
+  ASSERT_EQ(4, s3._length);
+  ASSERT_EQ('d', s3._contents[0]);
+  ASSERT_EQ('o', s3._contents[1]);
+  ASSERT_EQ('o', s3._contents[2]);
+  ASSERT_EQ('f', s3._contents[3]);
+}
