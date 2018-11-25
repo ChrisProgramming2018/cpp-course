@@ -75,7 +75,7 @@ String String::substr(int start, int end) {
 }
 
 // ________________________________________________________
-String String::reverse() {
+void String::reverse() {
   char* new_content = new char[_length];
   for (int i = 1; i <= _length; i++) {
     new_content[i -1] = _contents[_length - i];
