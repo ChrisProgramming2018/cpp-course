@@ -83,3 +83,7 @@ void String::reverse() {
   delete[] _contents;
   _contents = new_content;
 }
+
+// ________________________________________________________
+void String::reversePrint() {
+  char* new_chars = new char
