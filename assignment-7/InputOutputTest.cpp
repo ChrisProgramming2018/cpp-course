@@ -34,7 +34,7 @@ TEST(InputOutputTest, process) {
   int argc = 5;
   char* argv[5] = {
     const_cast<char*>("./ReverterMain"),
-    const_cast<char*>("-p"),
+    const_cast<char*>(" -p"),
     const_cast<char*>("test.txt"),
     const_cast<char*>(" > "),
     const_cast<char*>("outputtest.txt")
