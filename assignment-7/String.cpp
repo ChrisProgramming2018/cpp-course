@@ -57,21 +57,24 @@ void String::append(const String& s) {
 }
 
 // ________________________________________________________
-String String::substr(int start, int end) {
-  int size = _length;
-  if (start < size && end < size) {
-    String result;
-    int size = end - start + 1;
-    char* new_content = new char[size];
-    for (int i = start; i <= end; i++) {
-      new_content[i - start] = _contents[i];
-    }
-    result.set(new_content);
-    delete[]  new_content;
-    return result;
-  } else {
-    printf("The given boarder was outside the String ");
+void String::substr(const int start, const int end, String* result) const {
+  if (start > _length) {
+    result->set("");
+    return;
   }
+  if (end < start) {
+    result->set("");
+    return;
+  }
+  if (start < 0) {
+    result->set("");
+    return;
+  }
+  char* chars = new char[end - start + 1];
+  for (int i = start; i < end; i++) {chars[i - start] = _contents[i]; }
+  chars[end - start] = 0;
+  result->set(chars);
+  delete[] chars;
 }
 
 // ________________________________________________________
@@ -86,4 +89,15 @@ void String::reverse() {
 
 // ________________________________________________________
 void String::reversePrint() {
-  char* new_chars = new char
+  char* new_chars = new char[_length + 1];
+  for (int i = 0; i < _length; i++) {
+    new_chars[_length - i - 1] = _contents[i];
+  }
+  new_chars[_length] = 0;
+  set(new_chars);
+  delete[] new_chars;
+  for (int i = 0; i < _length; i++) {
+    printf("%c", _contents[i]);
+  }
+  printf("\n");
+}
