@@ -31,4 +31,29 @@ class Set {
 
   // Remove given Element from Set
   void remove(T n);
-}
+
+  // returns True if element is found 
+  bool find(T n);
+
+  //
+  int getSize();
+};
+
+// A
+template<>
+class Set<char> {
+ public:
+  //
+  int _size;
+
+  //
+  char* _elements;
+
+  // 
+  Set();
+
+  //
+  ~Set();
+
+  // insert char
+  void insert(char n);
