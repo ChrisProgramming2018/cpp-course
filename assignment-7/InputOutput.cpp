@@ -2,11 +2,9 @@
 // Computer Science
 // Author: Christian Leininger christianleininger@
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <getopt.h>
-#include <iostream>
 #include "./String.h"
 #include "./InputOutput.h"
 
@@ -18,16 +16,15 @@ InputOutput::InputOutput() {
 // ________________________________________________________
 void InputOutput::parseCommandLineArguments(int argc, char** argv) {
   struct option options[] = {
-    { "--palindroms-only", 0, NULL, 'p'},
+    { "--palindromes-only", 0, NULL, 'p'},
     { NULL, 0, NULL, 0 }
   };
   optind = 1;
   while (true) {
     char c = getopt_long(argc, argv, "p", options, NULL);
-    std::cout << c << std::endl;
-    if ( c== -1) break;
-    if ( c== '?') { exit(1); }
-    if ( c== 'p') _palindromes = true;
+    if (c == -1) break;
+    if (c == '?') { exit(1); }
+    if (c == 'p') _palindromes = true;
   }
   if (optind + 1 != argc) {
     fprintf(stderr, "Usage: ./InputOutputMain <filename>\n");
@@ -53,13 +50,13 @@ void InputOutput::process() {
     if (feof(file)) break;
     if (_palindromes) {
       s.set(line);
-      lengthOfLine = s._length();
+      lengthOfLine = s.length();
       s.substr(0, lengthOfLine - 1, &result);
       result.reverse();
       theSame = true;
-      for (int i = 0, i < lengthOfLine - 1; i++) {
+      for (int i = 0; i < lengthOfLine - 1; i++) {
         if (!(result._contents[i] == s._contents[i])) {
-            theSame = false;
+          theSame = false;
         }
       }
       if (theSame) {
@@ -75,7 +72,3 @@ void InputOutput::process() {
   fclose(file);
   delete[] line;
 }
-
-
-
-
