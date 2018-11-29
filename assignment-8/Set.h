@@ -1,9 +1,9 @@
 // Copyright 2018
 // Computer Science
-// 
+// Author: Christian Leininger christianleininger@gmx.de
 
-#ifndef
-#define
+#ifndef ASSIGNMENT_8_SET_H_
+#define ASSIGNMENT_8_SET_H_
 
 #include <gtest/gtest.h>
 
@@ -18,7 +18,7 @@ class Set {
   FRIEND_TEST(SetTest, insertT);
   FRIEND_TEST(SetTest, eraseT);
   FRIEND_TEST(SetTest, findT);
- 
+
  public:
   // Constructor
   Set();
@@ -32,7 +32,7 @@ class Set {
   // Remove given Element from Set
   void remove(T n);
 
-  // returns True if element is found 
+  // returns True if element is found
   bool find(T n);
 
   //
@@ -43,13 +43,13 @@ class Set {
 template<>
 class Set<char> {
  public:
-  //
+  // variable to save size
   int _size;
 
-  //
+  // constructor for char
   char* _elements;
 
-  // 
+  //
   Set();
 
   //
@@ -57,3 +57,10 @@ class Set<char> {
 
   // insert char
   void insert(char n);
+
+  void erase(char n);
+
+  bool find(char n);
+};
+
+#endif  // ASSIGNMENT_8_SET_H_
