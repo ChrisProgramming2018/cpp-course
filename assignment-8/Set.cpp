@@ -65,3 +65,17 @@ void Set<T>::erase(T n) {
   }
 }
 
+// ____________________________________________________________________________
+template <class T>
+bool Set<T>::find(T n) {
+  for (int i = 0; i < _size; i++) {
+    if (_elements[i] == n) return true;
+  }
+  return false;
+}
+
+// ____________________________________________________________________________
+template <class T>
+int  Set<T>::geSize() {
+  return _size;
+}
