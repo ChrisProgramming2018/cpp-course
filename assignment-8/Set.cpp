@@ -15,7 +15,7 @@ Set<T>::Set() {
 // ____________________________________________________________________________
 template <class T>
 Set<T>::~Set() {
-  delete[] _elements:
+  delete[] _elements;
 }
 
 // ____________________________________________________________________________
@@ -32,33 +32,33 @@ void Set<T>::insert(T n) {
     T* new_elements = new T[_size];
     new_elements[_size -1] = n;
   for (int i = 0; i < _size - 1; i++) {
-    new_elements[i] = _elements[i]
+    new_elements[i] = _elements[i];
   }
-  delete[] elements;
-  elements = new_elements;
+  delete[] _elements;
+  _elements = new_elements;
   }
 }
 
 // ____________________________________________________________________________
 template <class T>
-void Set<T>::erase(T n) {
-  bool earse = false;
+void Set<T>::remove(T n) {
+  bool remove = false;
   int saveNumber = 0;
   // search for element
   for (int i = 0; i < _size; i++) {
     if (_elements[i] == n) {
-      erase = true;
+      remove = true;
       saveNumber = i;
     }
   }
-  if (erase) {
+  if (remove) {
     _size--;
     T* new_elemnents = new T[_size];
     for (int i = 0; i < saveNumber; i++) {
-      new_elemnents[i] = elements[i];
+      new_elemnents[i] = _elements[i];
     }
     for (int j = saveNumber; j < _size; j++) {
-      new_elemnents[j] = elements[j + 1];
+      new_elemnents[j] = _elements[j + 1];
     }
     delete[] _elements;
     _elements = new_elemnents;
@@ -76,6 +76,6 @@ bool Set<T>::find(T n) {
 
 // ____________________________________________________________________________
 template <class T>
-int  Set<T>::geSize() {
+int  Set<T>::getSize() {
   return _size;
 }
