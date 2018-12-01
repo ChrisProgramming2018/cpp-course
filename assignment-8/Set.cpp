@@ -31,11 +31,11 @@ void Set<T>::insert(T n) {
     _size++;
     T* new_elements = new T[_size];
     new_elements[_size -1] = n;
-  for (int i = 0; i < _size - 1; i++) {
-    new_elements[i] = _elements[i];
-  }
-  delete[] _elements;
-  _elements = new_elements;
+    for (int i = 0; i < _size - 1; i++) {
+      new_elements[i] = _elements[i];
+    }
+    delete[] _elements;
+    _elements = new_elements;
   }
 }
 
@@ -79,3 +79,4 @@ template <class T>
 int  Set<T>::getSize() {
   return _size;
 }
+template class Set<int>;  // Compile class here
