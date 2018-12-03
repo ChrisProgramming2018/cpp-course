@@ -82,3 +82,12 @@ TEST(SetTest, findT) {
   ASSERT_FALSE(set.find(0));
 }
 
+// ____________________________________________________________________________
+TEST(SetTest, constructorChar) {
+  Set<char> set;
+  for (size_t  i = 0; i < 256; i++) {
+    ASSERT_FALSE(set._elements[i])<< "Error at i=" << i;
+  }
+}
+
+
