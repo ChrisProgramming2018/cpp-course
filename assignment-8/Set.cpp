@@ -80,3 +80,35 @@ int  Set<T>::getSize() {
   return _size;
 }
 template class Set<int>;  // Compile class here
+
+// ____________________________________________________________________________
+Set<char>::Set() {
+  _size = 256;
+  _elements = new char[_size];
+  for (size_t i = 0; i < 256; i++) {
+    _elements[i] = false;
+  }
+}
+// ____________________________________________________________________________
+Set<char>::~Set() {
+  delete[] _elements;
+}
+
+// ____________________________________________________________________________
+void Set<char>::insert(char n) {
+  unsigned char i = static_cast<unsigned char> (n);
+  _elements[i]  = n;
+}
+
+// ____________________________________________________________________________
+void Set<char>::remove(char n) {
+  unsigned char i = static_cast<unsigned char> (n);
+  _elements[i]&= 0;
+}
+
+// ____________________________________________________________________________
+bool Set<char>::find(char n) {
+  unsigned char i = static_cast<unsigned char> (n);
+  if (_elements[i] &n) return true;
+  return false;
+}
