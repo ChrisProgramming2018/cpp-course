@@ -118,4 +118,14 @@ TEST(SetTest, insertChar) {
   }
   ASSERT_TRUE(set._elements['a']);
   ASSERT_TRUE(set._elements['b']);
+  // test ue Okt 201, Dec 129, Hex 81
+  set.insert('\x81');
+  for (size_t i = 0; i < 256; i++) {
+    if (i != 'a' && i != 'b' && i != 129) {
+      ASSERT_FALSE(set._elements[i]) << "Error at i=" << i;
+    }
+  }
+  ASSERT_TRUE(set._elements['a']);
+  ASSERT_TRUE(set._elements['b']);
+  ASSERT_TRUE(set._elements[static_cast<unsigned char>('\x81')]);
 }
