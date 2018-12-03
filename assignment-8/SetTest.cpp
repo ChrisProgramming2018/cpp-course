@@ -90,4 +90,32 @@ TEST(SetTest, constructorChar) {
   }
 }
 
-
+// ____________________________________________________________________________
+TEST(SetTest, insertChar) {
+  Set<char> set;
+  for (size_t i = 0; i < 256; i++) {
+    ASSERT_FALSE(set._elements[i]) << "Error at i=" << i;
+  }
+  set.insert('a');
+  for (size_t i = 0; i < 256; i++) {
+    if (i != 'a') {
+      ASSERT_FALSE(set._elements[i]) << "Error at i=" << i;
+    }
+  }
+  ASSERT_TRUE(set._elements['a']);
+  set.insert('a');
+  for (size_t i = 0; i < 256; i++) {
+    if (i != 'a') {
+      ASSERT_FALSE(set._elements[i]) << "Error at i=" << i;
+    }
+  }
+  ASSERT_TRUE(set._elements['a']);
+  set.insert('b');
+  for (size_t i = 0; i < 256; i++) {
+    if (i != 'a' && i != 'b') {
+      ASSERT_FALSE(set._elements[i]) << "Error at i=" << i;
+    }
+  }
+  ASSERT_TRUE(set._elements['a']);
+  ASSERT_TRUE(set._elements['b']);
+}
