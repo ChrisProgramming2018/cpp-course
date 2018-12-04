@@ -170,4 +170,23 @@ TEST(SetTest, findChar) {
   Set<char> set;
   ASSERT_FALSE(set.find('a'));
   ASSERT_FALSE(set.find('b'));
+  set.insert('a');
+  ASSERT_TRUE(set.find('a'));
+  ASSERT_FALSE(set.find('b'));
+  ASSERT_FALSE(set.find('\x81'));
+
+  set.insert('b');
+  ASSERT_TRUE(set.find('a'));
+  ASSERT_TRUE(set.find('b'));
+  ASSERT_FALSE(set.find('\x81'));
+
+  set.insert('\x81');
+  ASSERT_TRUE(set.find('a'));
+  ASSERT_TRUE(set.find('b'));
+  ASSERT_TRUE(set.find('\x81'));
+
+  set.erase('a');
+  ASSERT_FALSE(set.find('a'));
+  ASSERT_TRUE(set.find('b'));
+  ASSERT_TRUE(set.find('\x81'));
 }
