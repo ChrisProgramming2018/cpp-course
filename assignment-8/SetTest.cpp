@@ -153,4 +153,21 @@ TEST(SetTest, removeChar) {
   }
   ASSERT_TRUE(set._elements['b']);
   ASSERT_TRUE(set._elements[static_cast<unsigned char>('\x81')]);
+  set.remove('b');
+  for (size_t i = 0; i < 256; i++) {
+    if (i != 129) {
+      ASSERT_FALSE(set._elements[i]) << "Error at i=" << i;
+    }
+  }
+  ASSERT_TRUE(set._elements[static_cast<unsigned char>('\x81')]);
+  set.remove('\x81');
+  for (size_t i = 0; i < 256; i++) {
+    ASSERT_FALSE(set._elements[i]) << "Error at i=" << i;
+  }
+}
+// _____________________________________________________________________________
+TEST(SetTest, findChar) {
+  Set<char> set;
+  ASSERT_FALSE(set.find('a'));
+  ASSERT_FALSE(set.find('b'));
 }
