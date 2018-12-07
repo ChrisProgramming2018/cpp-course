@@ -21,7 +21,7 @@ void WordCounter::readFile(std::string fileName) {
   std::ifstream file(fileName.c_str());
   // error if there is no file 
   if (!file.is_open()) {
-    std::cerr << "Error opening file: " << fileName << std::endl;
+    std::cerr << "Error opening file: " << filename << std::endl;
     exit(1);
   }
   string line;
@@ -62,5 +62,10 @@ void WordCounter::computeWords() {
 }
 
 // ____________________________________________________________________________
-void WordCounter::computeFrequentWords(int number) {
+std::vector<std::pair<std::string, size_t>> WordCounter::computeFrequentWords(int number) {
+  std::vector<std::pair<std::string, size_t>> result;
+  for (auto& items : _mapWordCounter) {
+    result.push_back(std::pair<std::string, size_t>(items.first, items.second));
+  }
+
 }
