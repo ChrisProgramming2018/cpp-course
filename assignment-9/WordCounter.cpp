@@ -67,5 +67,12 @@ std::vector<std::pair<std::string, size_t>> WordCounter::computeFrequentWords(in
   for (auto& items : _mapWordCounter) {
     result.push_back(std::pair<std::string, size_t>(items.first, items.second));
   }
-
+  // use lambda expression to sort
+  std::sort(result.begin(), result.end(), [] (
+        const std::pair<std::string, size_t> &left, 
+        const std::pair<std::string, size_t> &right) {
+      return left.second > right.second;
+      });
+  result.resize(std::min(number, result.size()));
+  return result;
 }
