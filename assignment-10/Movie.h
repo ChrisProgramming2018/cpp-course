@@ -9,7 +9,10 @@
 #include <string>
 class Movie {
  public:
-
+  Movie(const std::string title, const int year);
+  
+  // frees the memory
+  virtual ~ Movie() {} 
  private:
 
 };
