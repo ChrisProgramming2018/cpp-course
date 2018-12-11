@@ -22,10 +22,17 @@ std::string Movie::toString() const {
   oss << "\"" << _title << "\"" << " " << "(" << _year << ")";
   return oss.str();
 }
+
 // _____________________________________________________________________________
 std::string ActionMovie::toString() const {
   std::ostringstream oss;
   oss << Movie::toString() << ", directed by " << _director << ", rated: "
     << _rating;
   return oss.str();
+}
+
+// _____________________________________________________________________________
+AnimationMovie::AnimationMovie(const std::string title, const int year,
+  const std::string studio) : Movie(title, year) {
+  _studio = studio;
 }
