@@ -18,7 +18,9 @@ class Movie {
 
   // show inforamtion readable form
   virtual std::string toString() const;
-
+  
+  // 
+  std::string getTitle() const;
  private:
   // Movie title
   std::string _title;
@@ -27,4 +29,14 @@ class Movie {
   int _year;
 };
 
+// Subclass
+
+class ActionMovie : public Movie {
+ public:
+  // construct a instance
+  ActionMovie(const std::string, const int year, 
+      const std::string, director, const std::string rating);
+ private:
+
+};
 #endif  // ASSIGNMENT_10_MOVIE_H_
