@@ -10,7 +10,7 @@
 class Movie {
  public:
   Movie(const std::string title, const int year);
-  
+
   // frees the memory
   virtual ~Movie() {}
 
@@ -18,8 +18,8 @@ class Movie {
 
   // show inforamtion readable form
   virtual std::string toString() const;
-  
-  // 
+
+  //
   std::string getTitle() const;
  private:
   // Movie title
@@ -35,9 +35,20 @@ class Movie {
 class ActionMovie : public Movie {
  public:
   // construct a instance
-  ActionMovie(const std::string, const int year, 
-      const std::string, director, const std::string rating);
- private:
+  ActionMovie(const std::string, const int year,
+      const std::string director, const std::string rating);
 
+  // frees memory
+  ~ActionMovie();
+
+  //
+  std::string toString() const;
+
+ private:
+  // Movie
+  std::string _director;
+
+  // Movie rating
+  std::string _rating;
 };
 #endif  // ASSIGNMENT_10_MOVIE_H_
