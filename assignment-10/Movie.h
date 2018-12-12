@@ -51,4 +51,19 @@ class ActionMovie : public Movie {
   // Movie rating
   std::string _rating;
 };
+
+class AnimationMovie : public Movie {
+ public:
+  //
+  AnimationMovie(const std::string title, const int year,
+      const std::string studio);
+
+  // free momory
+  ~AnimationMovie() {}
+
+  std::string toString() const;
+ private:
+  std::string _studio;
+};
+
 #endif  // ASSIGNMENT_10_MOVIE_H_
