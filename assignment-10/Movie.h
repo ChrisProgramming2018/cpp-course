@@ -7,6 +7,7 @@
 
 #include <gtest/gtest.h>
 #include <string>
+
 class Movie {
  public:
   Movie(const std::string title, const int year);
@@ -14,7 +15,7 @@ class Movie {
   // frees the memory
   virtual ~Movie() {}
 
-  bool match(const std::string  pointer) const;
+  bool matches(const std::string  match) const;
 
   // show inforamtion readable form
   virtual std::string toString() const;
@@ -27,6 +28,8 @@ class Movie {
 
   // year of release
   int _year;
+  FRIEND_TEST(AnimationMovieTest, constructor);
+  FRIEND_TEST(ActionMovieTest, constructor);
   FRIEND_TEST(MovieTest, constructor);
 };
 
@@ -57,6 +60,7 @@ class AnimationMovie : public Movie {
   //
   AnimationMovie(const std::string title, const int year,
       const std::string studio);
+  FRIEND_TEST(AnimationMovieTest, constructor);
 
   // free momory
   ~AnimationMovie() {}
