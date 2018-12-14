@@ -2,10 +2,19 @@
 // Computer Sicence
 // Autor: Christian Leininger christianleininger@gmx.de
 
+#include <algorithm>
+#include <fstream>
 #include <iostream>
-#include <fstreams>
+#include <string>
 #include <vector>
+#include "./Movie.h"
 #include "./Movies.h"
+
+// _____________________________________________________________________________
+Movies::~Movies() {
+  for (auto& movie : _movies) { delete movie; }
+  _movies.clear();
+}
 
 // _____________________________________________________________________________
 void Movies::readFile(const std::string filename) {
