@@ -23,8 +23,15 @@ TEST(MovieTest, matches) {
   ASSERT_FALSE(m.matches("yTi"));
   ASSERT_TRUE(m.matches(""));
 }
+
 // ____________________________________________________________________________
 TEST(MovieTest, getTitle) {
   Movie m("MyTitle", 2016);
   ASSERT_STREQ("MyTitle", m.getTitle().c_str());
+}
+
+// ____________________________________________________________________________
+TEST(MovieTest, toString) {
+  Movie m("MyTitle", 2016);
+  ASSERT_STREQ("\"MyTitle\" (2016)", m.toString().c_str());
 }
