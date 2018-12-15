@@ -15,7 +15,6 @@ Movies::~Movies() {
   for (auto& movie : _movies) { delete movie; }
   _movies.clear();
 }
-
 // _____________________________________________________________________________
 void Movies::readFile(const std::string filename) {
   std::ifstream file(filename.c_str());
@@ -46,4 +45,19 @@ void Movies::readFile(const std::string filename) {
             token[0], atoi(token[1].c_str()), token[3], token[5]));
     }
   }
+}
+// _____________________________________________________________________________
+std::vector<Movie*> Movies::findMovies(std::string match) const {
+  std::vector<Movie*> result;
+  std::transform(match.begin(), match.end(), match.begin(), ::tolower);
+  result.clear();
+  for (auto& movie : _movies) {
+    if (movie->matches(match)) { result.push_back(movie); }
+  }
+  std::sort(result.begin(), result.end(), [](
+        Movie* left,
+        Movie* right) {
+      return left->getTitle() < right->getTitle();
+      });
+  return result;
 }
