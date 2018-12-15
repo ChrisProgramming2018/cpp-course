@@ -35,6 +35,14 @@ std::string Movie::toString() const {
 }
 
 // _____________________________________________________________________________
+ActionMovie::ActionMovie(const std::string title, const int year,
+    const std::string director, const std::string rating) 
+  : Movie(title, year) {
+    _director = director;
+    _rating = rating;
+} 
+
+// _____________________________________________________________________________
 std::string ActionMovie::toString() const {
   std::ostringstream oss;
   oss << Movie::toString() << ", directed by " << _director << ", rated: "
