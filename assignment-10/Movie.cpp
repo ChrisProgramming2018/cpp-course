@@ -14,10 +14,17 @@ Movie::Movie(const std::string title, const int year) {
   _title = title;
   _year = year;
 }
-   
+
+// ____________________________________________________________________________
+bool Movie::matches(const std::string match) const {
+  std::string title = _title;
+  std::transform(title.begin(), title.end(), title.begin(), ::tolower);
+  return title.find(match) != std::string::npos;
+}
+
 // _____________________________________________________________________________
 std::string Movie::getTitle() const {
-  return _title; 
+  return _title;
 }
 
 // _____________________________________________________________________________
