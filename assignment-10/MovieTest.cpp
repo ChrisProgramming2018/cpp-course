@@ -35,3 +35,19 @@ TEST(MovieTest, toString) {
   Movie m("MyTitle", 2016);
   ASSERT_STREQ("\"MyTitle\" (2016)", m.toString().c_str());
 }
+// ActionMovie
+TEST(ActionMovieTest, constructor) {
+  ActionMovie m("MyTitle", 2016, "Me", "R");
+  ASSERT_STREQ("MyTitle", m._title.c_str());
+  ASSERT_EQ(2016, m._year);
+  ASSERT_STREQ("Me", m._director.c_str());
+  ASSERT_STREQ("R", m._rating.c_str());
+}
+  
+TEST(ActionMovieTest, matches) {
+  ActionMovie m("MyTitle", 2016, "Me", "R");
+  ASSERT_FALSE(m.matches("2016"));
+  ASSERT_TRUE(m.matches("yti"));
+  ASSERT_FALSE(m.matches("yTi"));
+  ASSERT_TRUE(m.matches(""));
+}
