@@ -23,6 +23,8 @@ class Movies {
   void readFile(const std::string filename);
   FRIEND_TEST(MoviesTest, readFile);
 
+  // get function
+  std::vector<Movie*> getMovies() const;
  private:
   // save all Movie instances
   std::vector<Movie*> _movies;
