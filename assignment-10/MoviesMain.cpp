@@ -19,7 +19,14 @@ int main(int argc, char** argv) {
   std::cout << "Loading movies ";
   movies.readFile(std::string(argv[1]));
   std::cout << "done." << std::endl;
-
+  std::vector<Movie*> result;
+  result = movies.getMovies();
+  std::cout <<"Size of databais is "  << result.size() <<" movies" <<std::endl;
+  std::cout <<"File needs to be in format movietitle tab year tab ... " <<std::endl;
+  for (auto& movie : movies._movies) {
+      // std::cout << movie->getTitle() << std::endl;
+      //std::cout << movie->toString() << std::endl;
+  }
   while (true) {
     std::string keyWord;
     std::cout << "Type query or \e[1mquit\e[0m to exit." << std::endl;
