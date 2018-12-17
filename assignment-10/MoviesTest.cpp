@@ -5,6 +5,7 @@
 
 #include <gtest/gtest.h>
 #include <string>
+#include <vector>
 #include "./Movie.h"
 #include "./Movies.h"
 
@@ -43,4 +44,23 @@ TEST(MoviesTest, findMovies) {
   mi._movies.push_back(new AnimationMovie(
         "Movie3", 2013, "Long studio with many characters"));
   ASSERT_EQ(4, mi._movies.size());
+
+  std::vector<Movie*> result = mi.findMovies("");
+  ASSERT_EQ(4, result.size());
+  ASSERT_STREQ("\"Movie1\" (2011), directed by George Lukas, rated: R",
+      result[0]->toString().c_str());
+  ASSERT_STREQ("\"Movie2\" (2012), directed by George Lukas, rated: PG13",
+      result[1]->toString().c_str());
+  ASSERT_STREQ(
+      "\"Movie3\" (2013), produced by Long studio with many characters",
+      result[2]->toString().c_str());
+  ASSERT_STREQ("\"Movie4\" (2014), produced by Pixar",
+      result[3]->toString().c_str());
+  result = mi.findMovies("13");
+  ASSERT_EQ(0, result.size());
+  result = mi.findMovies("IE3");
+  ASSERT_EQ(1, result.size());
+  ASSERT_STREQ(
+      "\"Movie3\" (2013), produced by Long studio with many characters",
+      result[0]->toString().c_str());
 }
