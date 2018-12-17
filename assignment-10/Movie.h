@@ -25,7 +25,12 @@ class Movie {
 
   //
   std::string getTitle() const;
+
+  //
+  int getYear() const;
+
  private:
+
   // Movie title
   std::string _title;
 
@@ -45,6 +50,7 @@ class ActionMovie : public Movie {
 
   // Returns specific movie information in readable form.
   std::string toString() const;
+ 
  private:
   // Movie director.
   std::string _director;
@@ -63,6 +69,7 @@ class AnimationMovie : public Movie {
   ~AnimationMovie() {}
 
   std::string toString() const;
+ 
  private:
   std::string _studio;
 };
