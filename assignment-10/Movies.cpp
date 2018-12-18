@@ -29,11 +29,12 @@ void Movies::readFile(const std::string filename) {
     // Parse line into title, year, popularity.
     std::vector<std::string> token;
     while (true) {
-      size_t pos = line.find("\t");
+      size_t pos = line.find('\t');
       if (pos == std::string::npos) {
         token.push_back(line);
         break;
       }
+
       token.push_back(line.substr(0, pos));
       line = line.substr(pos + 1);
     }
@@ -46,6 +47,7 @@ void Movies::readFile(const std::string filename) {
     }
   }
 }
+
 // _____________________________________________________________________________
 std::vector<Movie*> Movies::findMovies(std::string match) const {
   std::vector<Movie*> result;
@@ -61,3 +63,12 @@ std::vector<Movie*> Movies::findMovies(std::string match) const {
       });
   return result;
 }
+
+// _____________________________________________________________________________
+std::vector<Movie*> Movies::yearMovies(int year) const {
+}
+// _____________________________________________________________________________
+std::vector<Movie*> Movies::getMovies() const {
+  return _movies;
+}
+
