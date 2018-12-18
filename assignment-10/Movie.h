@@ -18,19 +18,19 @@ class Movie {
   // frees the memory
   virtual ~Movie() {}
 
+  //  returns true if word in DB
   bool matches(const std::string  match) const;
 
   // show inforamtion readable form
   virtual std::string toString() const;
 
-  //
+  // get function title
   std::string getTitle() const;
 
-  //
+  // get function for year
   int getYear() const;
 
  private:
-
   // Movie title
   std::string _title;
 
@@ -47,10 +47,9 @@ class ActionMovie : public Movie {
   FRIEND_TEST(ActionMovieTest, constructor);
 
   ~ActionMovie() {}
-
   // Returns specific movie information in readable form.
   std::string toString() const;
- 
+
  private:
   // Movie director.
   std::string _director;
@@ -68,8 +67,9 @@ class AnimationMovie : public Movie {
   // free momory
   ~AnimationMovie() {}
 
+  // readable in command line
   std::string toString() const;
- 
+
  private:
   std::string _studio;
 };
