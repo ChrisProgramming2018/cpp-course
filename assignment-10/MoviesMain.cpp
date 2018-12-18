@@ -36,6 +36,10 @@ int main(int argc, char** argv) {
       && keyWord.find_first_not_of("0123456789") == std::string::npos) {
       std::cout << keyWord << std::endl;
       int year = std::stoi(keyWord);
+      if (year >= 2020 || year <= 1900) {
+        std::cout << "No valid year" << std::endl;
+        continue;
+      }
       result = movies.yearMovies(year);
       if (result.size() == 0) {
         std::cout << "No movie found with the year" << std::endl;
