@@ -23,6 +23,7 @@ class Movies {
   void readFile(const std::string filename);
   FRIEND_TEST(MoviesTest, readFile);
 
+  std::vector<Movie*> yearMovies(const int year) const;
   // get function
   std::vector<Movie*> getMovies() const;
  private:
