@@ -36,6 +36,7 @@ TEST(MovieTest, toString) {
   ASSERT_STREQ("\"MyTitle\" (2016)", m.toString().c_str());
 }
 // ActionMovie
+// ____________________________________________________________________________
 TEST(ActionMovieTest, constructor) {
   ActionMovie m("MyTitle", 2016, "Me", "R");
   ASSERT_STREQ("MyTitle", m._title.c_str());
@@ -43,11 +44,33 @@ TEST(ActionMovieTest, constructor) {
   ASSERT_STREQ("Me", m._director.c_str());
   ASSERT_STREQ("R", m._rating.c_str());
 }
-  
+
+// ____________________________________________________________________________
 TEST(ActionMovieTest, matches) {
   ActionMovie m("MyTitle", 2016, "Me", "R");
   ASSERT_FALSE(m.matches("2016"));
   ASSERT_TRUE(m.matches("yti"));
   ASSERT_FALSE(m.matches("yTi"));
   ASSERT_TRUE(m.matches(""));
+}
+
+// ____________________________________________________________________________
+TEST(ActionMovieTest, getTitle) {
+  ActionMovie m("MyTitle", 2016, "Me", "R");
+  ASSERT_STREQ("MyTitle", m.getTitle().c_str());
+}
+
+// ____________________________________________________________________________
+TEST(ActionMovieTest, toString) {
+  ActionMovie m("MyTitle", 2016, "Me", "R");
+  ASSERT_STREQ("\"MyTitle\" (2016), directed by Me, rated: R",
+      m.toString().c_str());
+}
+
+// AnimationMovie
+TEST(AnimationMovieTest, constructor) {
+  AnimationMovie m("MyTitle", 2016, "MyStudio");
+  ASSERT_STREQ("MyTitle", m._title.c_str());
+  ASSERT_EQ(2016, m._year);
+  ASSERT_STREQ("MyStudio", m._studio.c_str());
 }
