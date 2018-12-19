@@ -65,7 +65,12 @@ std::vector<Movie*> Movies::findMovies(std::string match) const {
 }
 
 // _____________________________________________________________________________
-std::vector<Movie*> Movies::yearMovies(int year) const {
+std::vector<Movie*> Movies::yearMovies(const int year) const {
+  std::vector<Movie*> result;
+  for (auto& movie : _movies) {
+    if (movie->getYear() == year) {result.push_back(movie);}
+  }
+  return result;
 }
 // _____________________________________________________________________________
 std::vector<Movie*> Movies::getMovies() const {
