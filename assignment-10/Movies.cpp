@@ -77,3 +77,30 @@ std::vector<Movie*> Movies::getMovies() const {
   return _movies;
 }
 
+// _____________________________________________________________________________
+int Movies::editDistance(const std::string x, const std::string y) const {
+  int **xArray = new int*[x.size()];
+  // int *yArray = new int[y.size()];
+  for (int i=0; i <= x.size(); i++) {
+    xArray[i] = new int[y.size()];
+  }
+  for (int i=0; i <= x.size()+1; i++) {
+    for (int j=0; j <= x.size()+1; j++) {
+      if (i == 0) {xArray[i][j] = j;} 
+      if (j == 0) {xArray[i][j] = i;}
+      std::cout << xArray[i][j];
+    }
+    std::cout << std::endl;
+  }
+  for (int i=1; i <= x.size()+1; i++) {
+    for (int j=1; j <= x.size()+1; j++) {
+      std::cout << x.at(i) << std::endl;
+    }
+  }
+  // free memory
+  for (int i=0; i <= x.size(); i++) {
+    delete [] xArray[i];
+  }
+
+  delete [] xArray;
+}
