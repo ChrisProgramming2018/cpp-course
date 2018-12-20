@@ -79,28 +79,47 @@ std::vector<Movie*> Movies::getMovies() const {
 
 // _____________________________________________________________________________
 int Movies::editDistance(const std::string x, const std::string y) const {
-  int **xArray = new int*[x.size()];
+  std::cout <<  x.size()  << std::endl;
+  std::cout <<  y.size()  << std::endl;
+  int **xArray = new int*[x.size()+1];
   // int *yArray = new int[y.size()];
-  for (int i=0; i <= x.size(); i++) {
-    xArray[i] = new int[y.size()];
-  }
   for (int i=0; i <= x.size()+1; i++) {
-    for (int j=0; j <= x.size()+1; j++) {
-      if (i == 0) {xArray[i][j] = j;} 
-      if (j == 0) {xArray[i][j] = i;}
-      std::cout << xArray[i][j];
-    }
-    std::cout << std::endl;
+    xArray[i] = new int[y.size()+1];
+  }
+  // init array x y
+  for (int i=0; i <= x.size()+1; i++) {
+    xArray[i][0] = i;
+  }
+  for (int j=0; j <= y.size()+1; j++) {
+    xArray[0][j] = j;
   }
   for (int i=1; i <= x.size()+1; i++) {
-    for (int j=1; j <= x.size()+1; j++) {
-      std::cout << x.at(i) << std::endl;
+    for (int j=1; j <= y.size()+1; j++) {
+      // std::cout << xArray[i][j];
+      if (x[i-1] == y[j-1]) {
+        xArray[i][j] = xArray[i-1][j-1];  
+      } else {
+	  int res1 = xArray[i-1][j];
+	  int res2 = xArray[i][j-1];
+	  int res3 = xArray[i-1][j-1];
+	  xArray[i][j] = std::min(std::min(res1,res2),res3)+1;
+       
+      }
     }
+  
   }
-  // free memory
-  for (int i=0; i <= x.size(); i++) {
-    delete [] xArray[i];
+  for (int i=1; i <= x.size()+1; i++) {
+    for (int j=1; j <= y.size()+1; j++) {
+      std::cout << xArray[i][j];
+    }
+      std::cout << std::endl;
   }
 
-  delete [] xArray;
+  
+      // free memory
+   
+  for (int i=0; i <= x.size()+1; i++) {
+    // delete [] xArray[i];
+  }
+  // delete [] xArray;
 }
