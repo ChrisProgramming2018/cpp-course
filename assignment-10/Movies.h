@@ -26,6 +26,8 @@ class Movies {
   std::vector<Movie*> yearMovies(const int year) const;
   // get function
   std::vector<Movie*> getMovies() const;
+  //  returns the euclidean distance
+  int editDistance(const std::string x, const std::string y) const;
  private:
   // save all Movie instances
   std::vector<Movie*> _movies;
