@@ -81,15 +81,13 @@ std::vector<Movie*> Movies::getMovies() const {
 int Movies::editDistance(const std::string x, const std::string y) const {
   std::cout <<  x.size()  << std::endl;
   std::cout <<  y.size()  << std::endl;
-  int **xArray = new int*[x.size()+1];
-  // int *yArray = new int[y.size()];
+  std::vector<std::vector<int>> xArray;
+  std::vector<int> yArray;
   for (int i=0; i <= x.size()+1; i++) {
-    xArray[i] = new int[y.size()+1];
+    yArray.push_back(i);
+    xArray.push_back(yArray);
   }
-  // init array x y
-  for (int i=0; i <= x.size()+1; i++) {
-    xArray[i][0] = i;
-  }
+ /* 
   for (int j=0; j <= y.size()+1; j++) {
     xArray[0][j] = j;
   }
@@ -108,20 +106,11 @@ int Movies::editDistance(const std::string x, const std::string y) const {
     }
   
   }
+  */
   for (int i=0; i <= x.size()+1; i++) {
     for (int j=0; j <= y.size()+1; j++) {
       std::cout << xArray[i][j];
     }
       std::cout << std::endl;
   }
-
-  
-      // free memory
-   
-  for (int k=0; k <= x.size()+1; k++) {
-    std::cout<< x.size() << std::endl;
-    xArray[k] = NULL;    
-    delete[] xArray[k];    
-  }
-    delete[] xArray;
 }
