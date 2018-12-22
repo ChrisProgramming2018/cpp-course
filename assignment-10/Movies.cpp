@@ -84,8 +84,17 @@ int Movies::editDistance(const std::string x, const std::string y) const {
   std::vector<std::vector<int>> xArray;
   std::vector<int> yArray;
   for (int i=0; i <= x.size()+1; i++) {
-    yArray.push_back(i);
+    for (int j=0; j <= y.size()+1; j++) {
+      if (i== 0) { 
+	yArray.push_back(j);
+      } else if (j== 0) { 
+	yArray.push_back(i);
+      } else {
+	yArray.push_back(0);
+      }
+    }
     xArray.push_back(yArray);
+    yArray.clear();
   }
  /* 
   for (int j=0; j <= y.size()+1; j++) {
