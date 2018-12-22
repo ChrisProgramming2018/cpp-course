@@ -28,6 +28,10 @@ std::string Movie::getTitle() const {
 }
 
 // _____________________________________________________________________________
+int Movie::getYear() const {
+  return _year;
+}
+// _____________________________________________________________________________
 std::string Movie::toString() const {
   std::ostringstream oss;
   oss << "\"" << _title << "\"" << " " << "(" << _year << ")";
@@ -57,8 +61,8 @@ std::string AnimationMovie::toString() const {
 
 // _____________________________________________________________________________
 ActionMovie::ActionMovie(const std::string title, const int year,
-    const std::string director, const std::string rating) 
+    const std::string director, const std::string rating)
   : Movie(title, year) {
   _director = director;
   _rating = rating;
-} 
+}
