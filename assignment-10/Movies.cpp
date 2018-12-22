@@ -96,10 +96,7 @@ int Movies::editDistance(const std::string x, const std::string y) const {
     xArray.push_back(yArray);
     yArray.clear();
   }
- /* 
-  for (int j=0; j <= y.size()+1; j++) {
-    xArray[0][j] = j;
-  }
+  
   for (int i=1; i <= x.size()+1; i++) {
     for (int j=1; j <= y.size()+1; j++) {
       // std::cout << xArray[i][j];
@@ -115,11 +112,11 @@ int Movies::editDistance(const std::string x, const std::string y) const {
     }
   
   }
-  */
   for (int i=0; i <= x.size()+1; i++) {
     for (int j=0; j <= y.size()+1; j++) {
       std::cout << xArray[i][j];
     }
       std::cout << std::endl;
   }
+  return xArray[x.size()+1][y.size()+1];
 }
